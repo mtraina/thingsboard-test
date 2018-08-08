@@ -4,7 +4,7 @@
 export THINGSBOARD_HOST=demo.thingsboard.io
 
 # Replace YOUR_ACCESS_TOKEN with one from Device credentials window.
-export ACCESS_TOKEN=YOUR_ACCESS_TOKEN
+export ACCESS_TOKEN=TarbKNZu6u2JJFUmlHK1
 
 # Read serial number and firmware version attributes
 ATTRIBUTES=$( cat attributes-data.json )
