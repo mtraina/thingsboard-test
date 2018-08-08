@@ -1,8 +1,8 @@
-var mqtt = require('mqtt');
+const mqtt = require('mqtt');
 
 console.log('Connecting to: %s using access token: %s', process.env.THINGSBOARD_HOST, process.env.ACCESS_TOKEN);
 
-var client  = mqtt.connect('mqtt://'+ process.env.THINGSBOARD_HOST,{
+const client  = mqtt.connect('mqtt://'+ process.env.THINGSBOARD_HOST,{
     username: process.env.ACCESS_TOKEN
 });
 
@@ -14,8 +14,6 @@ client.on('connect', function () {
     console.log('Attributes published!');
 
     pubTelemetry = setInterval(publishTelemetry, 1000)
-
-    //publishTelemetry()
 
     console.log('Telemetry published!');
     setTimeout(stopSimulation, 20000);
