@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 
 console.log('Connecting to: %s using access token: %s', process.env.THINGSBOARD_HOST, process.env.ACCESS_TOKEN);
 
-const client  = mqtt.connect('mqtt://'+ process.env.THINGSBOARD_HOST,{
+const client = mqtt.connect('mqtt://'+ process.env.THINGSBOARD_HOST,{
     username: process.env.ACCESS_TOKEN
 });
 
@@ -22,7 +22,8 @@ client.on('connect', function () {
 function publishTelemetry(){
     let tel = JSON.parse(process.env.TELEMETRY)
     tel.temperature += Math.floor(Math.random() * Math.floor(20))
-    console.log(tel)
+    tel.humidity += Math.floor(Math.random() * Math.floor(20))
+    console.log(`temperature ${tel.temperature}, humidity ${tel.humidity}`)
     client.publish('v1/devices/me/telemetry', JSON.stringify(tel));
 }
 
